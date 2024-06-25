@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>
+      Buttons
+    </title>
+    <style>
+      .yellowButton {
+        background-color: yellow;
+      }
+
+      .orangeButton {
+        background-color: orange;
+      }
+    </style>
   </head>
   <body>
     <button>Click</button>
-
+    <section>
+      <button class="yellowButton">Add to cart</button>
+      <button class="orangeButton">Buy now</button>
+    </section>
 
     <section>
       <button>name</button>
@@ -19,7 +34,24 @@
     <p>
       Today I went to the grocery store to buy some eggs and vegetables.
     </p>
+    <section>
+      <p>
+        Adults Plain Cotten T-shirt
+      </p>
+      <p>
+        Price: $7.99
+      </p>
+      <button class="yellowButton" onclick="
+      alert('Added')
+      ">Add to cart</button>
+      <button class="orangeButton" onclick="
+      console.log('loading...')
+      alert('Purchased')
+      ">Buy now</button>
+    </section>
+
+    <script>
+      alert('Welcome!')
+    </script>
   </body>
-
-
 </html>
