@@ -5,20 +5,29 @@
   <body>
 
     <script>
-      let hour = new Date().toLocaleTimeString('en-UK', {hour12: false} );
-
-      //hour = Number(hour);
-      
-      console.log(hour);
       /*
-      if (hour >= 6 && hour <= 12) {
-        console.log('Good morning!');
-      } else if (hour >= 13 && hour <= 18) {
-        console.log('Good afternoon');
-      } else {
-        console.log('Good night!')
-      }
+      let hour = new Date().toLocaleTimeString('en-UK', {hour12: false} );
+      hour = Number(hour);
+      Not needed this bit caputure hours minutes and seconds
       */
+      
+      const currentTime = new Date();
+      let hour = currentTime.getHours();
+      //hour = hour + 9;
+
+      let name = 'Ife';
+
+
+      console.log(hour);
+      
+      if (hour >= 6 && hour <= 12) {
+        console.log(`Good morning ${name}!`);
+      } else if (hour >= 13 && hour <= 17) {
+        console.log(`Good afternoon ${name}!`);
+      } else {
+        console.log(`Good night ${name}!`)
+      }
+      
 
 
       //console.log(hour);
