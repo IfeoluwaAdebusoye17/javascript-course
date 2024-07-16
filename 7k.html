@@ -9,43 +9,19 @@
       ">Show Quantity</button>
 
     <button onclick="
-
-      if (!(cartQuantity + 1 > 10)) {
-        cartQuantity ++;
-        console.log(`Cart quantity: ${cartQuantity}`);
-      } else {
-        console.log('The cart is full')
-      }      
+      updateCartQuantity(1);
     ">Add to Cart</button>
     
     <button onclick="
-
-      if (!(cartQuantity + 2 > 10)) {
-        cartQuantity += 2;
-        console.log(`Cart quantity: ${cartQuantity}`);
-      } else {
-        console.log('The cart is full')
-      }
+      updateCartQuantity(2);
     ">+2</button>
     
     <button onclick="
-
-      if (!(cartQuantity + 3 > 10)) {
-        cartQuantity += 3;
-        console.log(`Cart quantity: ${cartQuantity}`);
-      } else {
-        console.log('The cart is full')
-      }
+      updateCartQuantity(3);
     ">+3</button>
 
     <button onclick="
-
-      if (!(cartQuantity + 4 > 10)) {
-        cartQuantity += 4;
-        console.log(`Cart quantity: ${cartQuantity}`);
-      } else {
-        console.log('The cart is full')
-      }
+      updateCartQuantity(4);
     ">+4</button>
 
     <button onclick="
@@ -97,8 +73,13 @@
     <script>
       let cartQuantity = 0;
 
-      function updateCartQuantity() {
-        
+      function updateCartQuantity(value) {
+        if (!(cartQuantity + value > 10)) {
+        cartQuantity += value;
+        console.log(`Cart quantity: ${cartQuantity}`);
+        } else {
+        console.log('The cart is full')
+        } 
       }
     </script>
   </body>
