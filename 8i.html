@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button onclick="
+      playGame('heads')
+    ">heads</button>
+    
+    <button onclick="
+      playGame('tails')
+    ">tails</button>
+    
+    <script>
+      let result = '';
+
+
+      /*
+      if (randomNumber < 0.5) {
+          result = 'heads';
+      } else {
+          result ='tails';
+      }
+      */
+
+      
+      /*
+      if (result === guess) {
+          console.log('You win!');
+      } else {
+          console.log('You lose!');
+      }
+      */
+
+      function playGame(guess) {
+        randomNumber = Math.random();
+        randomNumber < 0.5 ? result = 'heads': result = 'tails'
+
+        guess === result ? console.log('You win!') : console.log('You loose!');
+      }
+    </script>
+  </body>
+
+</html>

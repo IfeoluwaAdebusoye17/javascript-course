@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+
+  <body>
+    <script>
+      const basketball = {
+        name: 'basketball',
+        price: 2095
+      };
+      console.log(basketball);
+      basketball.price += 500;
+      console.log(basketball);
+
+      basketball['delivery-time'] = '3 days'
+      console.log(basketball);
+
+
+      product1 = {
+          name: 'pap',
+          price: 1.81
+        };
+
+        product2 = {
+          name: 'ogi',
+          price: 1.89
+        };
+
+      function comparePrice(product1, product2) {
+        if (product1.price < product2.price) {
+          console.log(product1.name);
+        } else {
+          console.log(product2.name);
+        }
+      }
+
+      comparePrice(product1, product2);
+
+      product1.name = 'ogi';
+      product1.price = 1.89;
+
+      function isSameProduct(product1, product2) {
+        if (product1.name === product2.name && product1.price === product2.price) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(isSameProduct(product1, product2));
+
+      function lower(sentence) {
+        return sentence.toLowerCase()
+      } 
+      console.log(lower('Good Morning TO you The Birds are Chirping'));
+
+
+      function repeat(word, count) {
+        return word.repeat(count);
+      }
+
+      console.log(repeat('test', 2));
+    </script>
+  </body>
+</html>
