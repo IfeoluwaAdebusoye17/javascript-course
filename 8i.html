@@ -11,32 +11,31 @@
     ">tails</button>
     
     <script>
+      let score = JSON.parse(localStorage.getItem('out')) ||
+      {
+        wins: 0,
+        loss: 0
+      };
+
       let result = '';
-
-
-      /*
-      if (randomNumber < 0.5) {
-          result = 'heads';
-      } else {
-          result ='tails';
-      }
-      */
-
-      
-      /*
-      if (result === guess) {
-          console.log('You win!');
-      } else {
-          console.log('You lose!');
-      }
-      */
 
       function playGame(guess) {
         randomNumber = Math.random();
-        randomNumber < 0.5 ? result = 'heads': result = 'tails'
+        randomNumber < 0.5 ? result = 'heads': result = 'tails';
 
-        guess === result ? console.log('You win!') : console.log('You loose!');
+        if (guess === result) {
+          console.log('You win!');
+          score.wins ++;
+        }  else {
+          console.log('You loose!');
+          score.loss ++;
+        }
+        console.log(score);
+
+        localStorage.setItem('out', JSON.stringify(score));
+        
       }
+
     </script>
   </body>
 
