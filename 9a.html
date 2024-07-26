@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <section>
+      <button>9a</button>
+      <button class="js-9b">9b</button>
+    </section>
+    <section>
+      <button class="js-heads" onclick="
+        verdict('heads');
+
+      ">heads</button>
+      
+      <button class="js-tails" onclick="
+        verdict('tails');
+      ">tails</button>
+    </section>
+    <section>
+      <p class="js-print"></p>
+    </section>
+    <input placeholder="Name" class="js-input" onkeydown="
+  
+      enterDisplayName(event);
+    ">
+    <button onclick="
+      displayName();
+    ">Submit</button>
+    <p class="js-name"></p>
+
+    <script>
+      console.log(document.querySelector('button'));
+
+      document.querySelector('.js-9b').innerHTML = '9b done';
+
+      function verdict(side) {
+        document.querySelector('.js-print').innerHTML = `You chose: ${side}`;
+        
+        //console.log(`You chose: ${side}`);
+      }
+
+      function displayName() {
+
+        const inputElement = document.querySelector('.js-input');
+        let text = inputElement.value;
+        document.querySelector('.js-name').innerHTML = `Your name is: ${text}`;
+      }
+
+      function enterDisplayName(event) {
+        if(event.key === 'Enter') {
+          displayName();
+        }
+
+      }
+
+    </script>
+  </body>
+</html>
