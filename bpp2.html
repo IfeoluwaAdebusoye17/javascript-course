@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sample form</title>
+
+    </head>
+    <body>
+        <form id="form1" onsubmit="formInput()">
+        First name: <input type="text" name="firstname" value="John"><br>
+        Last name: <input type="text" name="lastname" value="Doe"><br>
+        <input type="submit" value="Submit">
+            
+        </form>
+        <p class="js-first"></p>
+        <script>
+            function formInput() {
+                const name = document.getElementById('form1');
+                document.querySelector('.js-first').innerHTML = name[0].value;
+                console.log(name[0].value);
+            }
+
+        </script>
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

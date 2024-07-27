@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <button onclick="
+      const quantity = (`Cart quantity: ${cartQuantity}`);
+      document.querySelector('.js-cart-total').innerHTML = quantity; 
+      ">Show Quantity</button>
+
+    <button onclick="
+      updateCartQuantity(1, true);
+    ">Add to Cart</button>
+    
+    <button onclick="
+      updateCartQuantity(2, true);
+    ">+2</button>
+    
+    <button onclick="
+      updateCartQuantity(3, true);
+    ">+3</button>
+
+    <button onclick="
+      updateCartQuantity(4, true);
+    ">+4</button>
+
+    <button onclick="
+      updateCartQuantity(5, true);
+    ">+5</button>
+    
+    <button onclick="
+    cartQuantity = 0;
+    console.log(`Cart was reset`);
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">Reset Cart</button>
+      
+    <button onclick="
+      updateCartQuantity(1);
+    ">Remove from Cart</button>
+
+    <button onclick="
+      updateCartQuantity(2);
+    ">-2</button>  
+    
+    <button onclick="
+      updateCartQuantity(3);
+    ">-3</button>   
+    
+    <p class="js-cart-total"></p>
+    <script>
+      let cartQuantity = 0;
+      document.querySelector('.js-cart-total').innerHTML = `Cart quantity: ${cartQuantity}`;
+
+      function updateCartQuantity(value, add) {
+        if (add) {
+          if (cartQuantity + value > 10) {
+            const errorOne = 'The cart is full';
+            document.querySelector('.js-cart-total').innerHTML = errorOne;
+            return;
+          } 
+          cartQuantity += value;
+          const accumulate = `Cart quantity: ${cartQuantity}`;
+          document.querySelector('.js-cart-total').innerHTML = accumulate; 
+          
+        } else {
+          if (cartQuantity - value < 0) {
+            const errorTwo = 'Not enough items in the cart';
+            document.querySelector('.js-cart-total').innerHTML = errorTwo;
+            return;
+          } 
+          cartQuantity -= value;
+          const resultant = `Cart quantity: ${cartQuantity}`;
+          document.querySelector('.js-cart-total').innerHTML = resultant; 
+          
+        }
+      }
+    </script>
+  </body>
+</html>

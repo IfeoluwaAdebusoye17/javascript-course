@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <p class="js-aspect-ratio"></p>
+        <p class="js-avail-ratio"></p>
+        <p class="js-colour-depth"></p>
+        <script>
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            document.querySelector(".js-aspect-ratio").innerHTML = `Browser Width: ${width}, Height: ${height}`;
+
+
+            const widthAvail = window.screen.availWidth;
+            const heightAvail = window.screen.availHeight;
+            document.querySelector(".js-avail-ratio").innerHTML = `Browser Width: ${widthAvail}, Height: ${heightAvail}`;
+
+            const colorDepth = screen.colorDepth;
+            console.log(`Color Depth: ${colorDepth} bits per pixel`);
+            document.querySelector(".js-colour-depth").innerHTML = `Color Depth: ${colorDepth} bits per pixel`;
+
+        </script>
+    </body>
+</html>

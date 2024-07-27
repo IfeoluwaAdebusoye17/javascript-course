@@ -20,6 +20,12 @@
     ">Calculate</button>
 
     <p class="js-total-cost"></p>
+
+    <input placeholder="Type something" class="js-type" onkeyup="
+      typePage();
+    ">
+    <p class="js-result-type"></p>
+    
     
     <script>
       String(25)
@@ -59,6 +65,11 @@
           buttonElement.innerHTML = 'Subscribe'
         }
 
+      }
+      function typePage() {
+        const typeValue = document.querySelector('.js-type').value;
+
+        document.querySelector('.js-result-type').innerHTML = typeValue;
       }
     </script>
   </body>
