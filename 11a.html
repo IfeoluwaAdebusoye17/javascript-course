@@ -3,6 +3,8 @@
   <head></head>
   <body>
     <script>
+      //11a
+      console.log('11.a');
       const nums = [10, 20, 30];
       console.log(nums);
 
@@ -10,15 +12,19 @@
 
       console.log(nums);
 
+      //11b
+      console.log('11.b');
       function getLastValue(array) {
         const length = array.length;
         const lastValue = array[length - 1];
         console.log(lastValue);
       }
-
+      
       getLastValue([1, 20, 22, 24, 5]);
       getLastValue(['hi','hello','good']);
 
+      //11c
+      console.log('11.c');
       function arraySwap(array) {
         const first = array[0];
         const length = array.length;
@@ -38,14 +44,20 @@
       arraySwap([1, 20, 22, 24, 5]);
       arraySwap(['hi','hello', 'good']);
 
+      //11d
+      console.log('11.d');
       for (let i = 0; i <= 10; i+=2) {
         console.log(i);
       }
 
+      //11e
+      console.log('11.e');
       for (let i = 5; i >= 0; i--) {
         console.log(i);
       }
 
+      //11f
+      console.log('11.f')
       let i= 0;
       while (i <= 10) {
         console.log(i);
@@ -58,13 +70,16 @@
         j--;
       }
 
+      //11g
+      console.log('11.g');
       defaultArray = [1,2,3];
       for (let i = 0; i < defaultArray.length; i++) {
         defaultArray[i]++;
       }
       console.log(defaultArray);
 
-
+      //11h
+      console.log('11.h');
       function addOne(array) {
         for (let i = 0; i < array.length; i++) {
         array[i]++;
@@ -75,7 +90,8 @@
       addOne([1,2,3]);
       addOne([-2,-1,0,99]);
 
-
+      //11i
+      console.log('11.i');
       function addNum(array, num) {
         for (let i = 0; i < array.length; i++) {
           array[i] += num;
@@ -87,18 +103,144 @@
       addNum([1,2,3],3);
       addNum([-2,-1,0,99],2);
 
-      //rename the list names.
+      //11j
+      console.log('11.j');
       function addArrays(array1, array2) {
-        let megaArray = [];
+        let newArray = [];
         for (let i = 0; i < array1.length; i++) {
-          const totalArray = array1[i] + array2[i];
-          megaArray.push(totalArray); 
+          const sumArray = array1[i] + array2[i];
+          newArray.push(sumArray); 
         }
-        console.log(megaArray);
+        console.log(newArray);
        
       }
       addArrays([1,1,2], [1,1,3]);
       addArrays([1,2,3],[4,5,6]);
+
+      //11k
+      console.log('11.k');
+      function countPositive(nums) {
+        let positiveCount = 0;
+        for (let i = 0; i < nums.length; i++) {
+          if (nums[i] > 0) {
+            positiveCount++;
+          }
+        }
+        console.log(positiveCount);
+      }
+
+      countPositive([1, -3, 5]);
+      countPositive([-2, 3, -5, 7, 10]);
+
+      //11l
+      console.log('11.l');
+      function minMax(nums = null) {
+        let min = nums[0];
+        let max = nums[0];
+        for (let i = 0; i < nums.length; i ++) {
+          //console.log(nums[i + 1]);
+        
+          if (nums[i] < min) {
+            min = nums[i];
+          }
+          
+          if (nums[i] > max) {
+            max = nums[i];
+          }
+          
+        }
+        
+          if(nums.length){
+            console.log(`min: ${min}, max:${max}`);
+          } else {
+            console.log(`min: ${null}, max:${null}`);
+          }
+          
+          
+        
+      }
+      
+      minMax([1, -3, 5]);
+      minMax([-2, 3, -5, 7, 10]);
+
+      //11m
+      console.log('11.m');
+
+      minMax([]);
+      minMax([3]);
+
+      //11n
+      console.log('11.n');
+
+      function countWords(words) {
+        //New list that will be modified
+        let testList = [];
+        //Come baclk and implement the solution that supersimpledev used...
+
+        //console.log(words);
+        
+
+        for (let i = 0; i < words.length; i++) {
+          testList.push(words[i]);
+        }
+        //console.log(testList);
+
+        
+        let newList = words;
+
+        //First make the object
+        const item = {
+          name: [],
+          count: [],
+        };
+
+        
+        //Next find how many unique entries
+        
+        function saveUnique() {
+          //let firstEntry = newList[0];
+          for (let i = 1; i < newList.length; i++) {    
+            if (newList[0] === newList[i]) {
+              newList.shift();
+              saveUnique();
+            } 
+          }
+          if(newList.length != 0) {
+            item.name.push(newList[0]);
+            newList.shift();
+            saveUnique();
+          }
+        }
+            
+        
+        saveUnique();
+        console.log(newList);
+
+        console.log(item.name);
+        console.log(testList);
+
+        
+        for (let i = 0; i < item.name.length; i++) {
+          let uniqueCount = 0;
+          for (let j = 0; j < testList.length; j++) {
+            if (item.name[i] === testList[j]) {
+              uniqueCount ++;
+            }
+          }
+          item.count.push(uniqueCount);
+        }
+        
+        console.log(item.count);
+        console.log(JSON.stringify(item));
+        //console.log(item.name[0]);
+        //console.log(testList[0])
+        
+        
+       
+      }
+      //countWords(['apple','grape','apple','apple','tomato','tomato','carrot','banana', 'apple','peter','prosper','peter','praise']);
+      countWords(['apple','grape','apple','apple']);
+
     </script>
   </body>
 </html>
