@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+  </head>
+  <body>
+    
+    <button class="js-start" onclick="
+        timer();
+      ">Start</button>
+
+    <section>
+      <button class="js-cart" onclick="
+      cart();
+    ">Add to cart</button>
+    </section>
+    <p class="js-cart-confirmation"></p>
+    <section>
+
+      
+      <button onclick="
+        auto('add'); 
+      ">Add</button>
+      <button onclick="
+        auto('minus');
+      ">Remove</button>
+    </section>
+    
+    <script>
+      const add = function() {
+        console.log(2+3);
+      };
+
+      add();
+      add();
+
+      let array = [1, 2];
+      array.forEach(function() {
+        console.log(2+3);
+      });
+
+
+      let array1 = [1, 2];
+      array.forEach(add);
+
+      function runTwice(fun) {
+        fun();
+        fun();
+      }
+      runTwice(function() {console.log('12b');});
+      runTwice(add);
+
+      let started = false;
+      function timer() {  
+        if (!started) {
+          setTimeout(function() {
+            document.querySelector('.js-start').innerHTML = 'Finished'},1000);
+            document.querySelector('.js-start').innerHTML = 'Loading...';
+          started = true;
+        } else {
+          document.querySelector('.js-start').innerHTML = 'Start';
+          started = false;
+          
+        }
+          
+      }
+
+      let timerID;
+      function cart() { 
+        
+        document.querySelector('.js-cart-confirmation').innerHTML = 'Added';
+
+        clearTimeout(timerID);
+
+        timerID = setTimeout(function() {
+          document.querySelector('.js-cart-confirmation').innerHTML = ''},2000);
+      }
+      
+      
+      let total = 2;
+      let displayIntervalID;
+      let homeIntervalID;
+      
+      function auto(symbol) {
+        if (symbol === 'add' && total + 1 > 0) {
+          total ++;
+          clearAll();
+          console.log(total);
+          intervals();
+        } else if (symbol === 'minus' && total - 1 > 0) {
+          total--;
+          clearAll();
+          console.log(total);          
+          intervals();
+        } else if (symbol === 'minus' && total -1 === 0) {
+          clearAll();
+          document.title = 'App';
+          total--;
+          console.log('stuck at zero');
+          
+        }
+      }
+
+
+      function intervals() {
+        displayIntervalID = setInterval(function () {
+          document.title = `(${total}) New messages`;
+        }, 1000);
+
+        homeIntervalID = setInterval(function () {
+          document.title = 'App';
+        }, 2000);
+      }
+
+      function clearAll() {
+        clearInterval(displayIntervalID);
+        clearInterval(homeIntervalID);
+      }
+
+      
+    </script>
+  </body>
+</html>
