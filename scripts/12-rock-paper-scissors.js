@@ -18,9 +18,15 @@ if (!score) {
 let isAutoplaying = false;
 let intervalID;
 
+
+//const autoPlay = () => {
+
+//};
+
+//Regualr function which is below compared to above allows for hoisting which allows you to call the function before the position in which it was created.
 function autoPlay() {
   if (!isAutoplaying) {
-    intervalID = setInterval(function() {
+    intervalID = setInterval(() => {
       const playerMove = pickComputerMove();
       playGame(playerMove);
     }, 1000);
@@ -30,6 +36,31 @@ function autoPlay() {
     isAutoplaying = false;
   }
 }
+
+document.querySelector('.js-rock-button')
+  .addEventListener('click', () => {
+    playGame('rock');
+  });
+
+document.querySelector('.js-paper-button')
+  .addEventListener('click', () => {
+    playGame('paper');
+});
+
+document.querySelector('.js-scissors-button')
+  .addEventListener('click', () => {
+    playGame('scissors');
+});
+
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'r') {
+    playGame('rock');
+  } else if (event.key === 'p') {
+    playGame('paper');
+  } else if (event.key === 's') {
+    playGame('scissors');
+  }
+});
 
 
 function playGame(playerMove) {

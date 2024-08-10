@@ -13,16 +13,13 @@ function renderTodoList() {
 
   let todoListHTML = '';
 
-  todoList.forEach(function(todoObject, index) {
+  todoList.forEach((todoObject, index) => {
 
     const { name, dueDate} = todoObject;
     const html = `
     <div>${name}</div>
     <div>${dueDate}</div> 
-    <button onclick="
-      todoList.splice(${index}, 1);
-      renderTodoList();  
-    " class="delete-todo-button">Delete</button>
+    <button class="delete-todo-button js-delete-todo-button">Delete</button>
     `;
     todoListHTML += html;
 
@@ -30,7 +27,25 @@ function renderTodoList() {
   });
   
   document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+
+  document.querySelectorAll('.js-delete-todo-button')
+    .forEach((deleteButton, index) => {
+      deleteButton.addEventListener('click', () => {
+        console.log(index);
+        todoList.splice(index, 1);
+        renderTodoList();
+      });
+    });
+
+  //see line 34 where there is console.log. It is closure
+  //If a function has access to a value it will always have access to that value
+  //value gets packaged together (enclosed) with the function
 }
+
+document.querySelector('.js-add-todo-button')
+  .addEventListener('click', () => {
+    addTodo();
+  });
 
 function addTodo() {
   const inputElement = document.querySelector('.js-name-input');
