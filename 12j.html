@@ -4,6 +4,8 @@
   <body>
     <script>
 
+      //12j, 12k
+
       const multiply = (num1, num2) => num1 * num2;
 
       console.log(multiply(2, 3));
@@ -16,6 +18,8 @@
       )};
       */
    
+      //12l
+
       function countPositive(nums) {
         let count = 0;
         nums.forEach(value => {
@@ -36,14 +40,42 @@
         return newList;
       }
       */
+      //12m
       function addNum(array, num) {
-        array.map((value) => {
-          return value + num;
-        });
+        return array.map(value => value + num);
       }
 
       console.log(addNum([1, 2, 3], 2));
       console.log(addNum([-2, -1, 0, 99], 2));
+
+      //12n
+      function removeEgg(food) {
+        return food.filter(value => value !== 'egg');
+      }
+
+      console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+
+      //12o
+      function removeEgg1(food) {
+        let count = 0;
+        return food.filter(value => {
+          if (value === 'egg' && count < 2) {
+            count ++;
+            return false;
+          }
+          return true;
+        });
+      }
+
+      console.log(removeEgg1(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+      //12p
+      
+
+
+
+
     </script>
   </body>
 </html>

@@ -5,29 +5,21 @@
   </head>
   <body>
     
-    <button class="js-start" onclick="
-        timer();
-      ">Start</button>
+    <button class="js-start">Start</button>
 
     <section>
-      <button class="js-cart" onclick="
-      cart();
-    ">Add to cart</button>
+      <button class="js-cart">Add to cart</button>
     </section>
     <p class="js-cart-confirmation"></p>
     <section>
 
       
-      <button onclick="
-        auto('add'); 
-      ">Add</button>
-      <button onclick="
-        auto('minus');
-      ">Remove</button>
+      <button class="js-add-auto">Add</button>
+      <button class="js-minus-auto">Remove</button>
     </section>
     
     <script>
-      const add = function() {
+      const add = () => {
         console.log(2+3);
       };
 
@@ -35,7 +27,7 @@
       add();
 
       let array = [1, 2];
-      array.forEach(function() {
+      array.forEach(() => {
         console.log(2+3);
       });
 
@@ -47,13 +39,18 @@
         fun();
         fun();
       }
-      runTwice(function() {console.log('12b');});
+      runTwice(() => {console.log('12b');});
       runTwice(add);
 
+      //12c
+      document.querySelector('.js-start').addEventListener('click', () => {
+        timer();
+      });
+      
       let started = false;
       function timer() {  
         if (!started) {
-          setTimeout(function() {
+          setTimeout(() => {
             document.querySelector('.js-start').innerHTML = 'Finished'},1000);
             document.querySelector('.js-start').innerHTML = 'Loading...';
           started = true;
@@ -65,6 +62,9 @@
           
       }
 
+      document.querySelector('.js-cart').addEventListener('click', () => {
+        cart();
+      });
       let timerID;
       function cart() { 
         
@@ -72,10 +72,17 @@
 
         clearTimeout(timerID);
 
-        timerID = setTimeout(function() {
+        timerID = setTimeout(() => {
           document.querySelector('.js-cart-confirmation').innerHTML = ''},2000);
       }
       
+      document.querySelector('.js-add-auto').addEventListener('click', () => {
+        auto('add');
+      });
+
+      document.querySelector('.js-minus-auto').addEventListener('click', () => {
+        auto('minus');
+      });
       
       let total = 2;
       let displayIntervalID;
@@ -103,11 +110,11 @@
 
 
       function intervals() {
-        displayIntervalID = setInterval(function () {
+        displayIntervalID = setInterval(() => {
           document.title = `(${total}) New messages`;
         }, 1000);
 
-        homeIntervalID = setInterval(function () {
+        homeIntervalID = setInterval(() => {
           document.title = 'App';
         }, 2000);
       }

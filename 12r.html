@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles/12r.css">
+  </head>
+  <body>
+    <p class="title">Rock Paper Scissors</p>
+    <button class="move-button js-rock-button">
+      <img src="images/12r rock-emoji.png" class="move-icon">
+    </button>
+
+    <button class="move-button js-paper-button">
+      <img src="images/12r paper-emoji.png" class="move-icon">
+    </button>
+
+    <button class="move-button js-scissors-button">
+      <img src="images/12r scissors-emoji.png" class="move-icon">
+    </button>
+
+    <p class="js-result result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score score"></p>
+
+    <button class="reset-score-button js-reset-score-button">Reset Score</button>
+
+    <button class="auto-play-button js-auto-play-button">Auto Play</button>
+    
+    <div class="button-container js-button-container"></div>
+
+    <!--
+    didnt need div could just but buttons inside paragraph element.
+    <p>Hi
+      <button>im a muff</button>
+      <button>it muff time</button>
+    </p>
+  -->
+    <script src="scripts/12r.js"></script>
+  </body>
+</html>
